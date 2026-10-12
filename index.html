@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#000000"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#000"></rect><text x="50" y="62" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700" fill="#5BFFCD">01</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap">
+<style>html,body{margin:0;background:#000;overflow-x:hidden}a{color:#5bffcd}a:hover{color:#507aff}</style>
+</helmet>
+<div ref="{{ scrollRef }}" style="position:relative;height:1600vh;background:#000">
+  <div style="position:sticky;top:0;height:100vh;cursor:crosshair">
+    <canvas ref="{{ canvasRef }}" style="width:100%;height:100%;display:block;filter:drop-shadow(0 0 16px rgba(255,255,255,0.18))"></canvas>
+    <div ref="{{ hintRef }}" style="position:absolute;left:50%;top:48%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 0 24px rgba(255,255,255,0.25)">
+      <svg width="30" height="34" viewBox="0 0 30 34" fill="none">
+        <rect x="7" y="2" width="16" height="26" rx="8" stroke="#000" stroke-width="2"></rect>
+        <rect x="14" y="7" width="2" height="5" rx="1" fill="#000">
+          <animate attributeName="y" values="7;13;13" keyTimes="0;0.7;1" dur="1.6s" repeatCount="indefinite"></animate>
+          <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.7;1" dur="1.6s" repeatCount="indefinite"></animate>
+        </rect>
+        <path d="M11 30.5l4 2.5 4-2.5" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" repeatCount="indefinite"></animate>
+        </path>
+      </svg>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;layers&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:40,&quot;min&quot;:2,&quot;max&quot;:40,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Объём&quot;},&quot;depth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2.5,&quot;min&quot;:0.3,&quot;max&quot;:2.5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Объём&quot;},&quot;perspective&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.1,&quot;min&quot;:1.1,&quot;max&quot;:4,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Объём&quot;},&quot;tilt&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.65,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Движение&quot;},&quot;cellSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:11,&quot;min&quot;:6,&quot;max&quot;:16,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Цифры&quot;},&quot;cellSizeEnd&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:9,&quot;min&quot;:6,&quot;max&quot;:16,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Цифры&quot;},&quot;floor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Сцена&quot;}}">
+class Component extends DCLogic {
+  static SVG_RU = "<svg width=\"1711\" height=\"600\" viewBox=\"0 0 1711 600\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-1819.948,-7370)\"> <rect id=\"Artboard4\" x=\"0\" y=\"6590\" width=\"5120\" height=\"2160\" style=\"fill:none;\"></rect> <g id=\"Artboard41\"> <g> <g transform=\"matrix(1,0,0,1,-43.052,-206.708372)\"> <g transform=\"matrix(2.717728,0,0,1.263719,-3322.331713,1096.056967)\"> <g transform=\"matrix(1.468944,0,0,1.468944,-997.18805,-2511.249755)\"> <path d=\"M2189.601,5361.744L2187.191,5361.744L2187.191,5404.8L2178.018,5404.8L2178.018,5304L2187.191,5304L2187.191,5348.64L2189.334,5346.624L2202.257,5304L2212.702,5304L2199.043,5346.336L2195.427,5351.808L2199.176,5357.424L2214.778,5404.8L2203.462,5404.8L2189.601,5361.744Z\" style=\"fill-rule:nonzero;\"></path> <path d=\"M2255.89,5352.528L2256.895,5332.512L2256.493,5332.512L2253.614,5348.64L2243.637,5386.224L2240.691,5386.224L2230.178,5348.496L2227.232,5332.512L2226.897,5332.512L2228.237,5352.384L2228.237,5404.8L2219.532,5404.8L2219.532,5304L2227.902,5304L2240.423,5350.08L2242.633,5361.6L2242.901,5361.6L2244.909,5349.792L2256.761,5304L2265.064,5304L2265.064,5404.8L2255.89,5404.8L2255.89,5352.528Z\" style=\"fill-rule:nonzero;\"></path> <path d=\"M2290.039,5304L2318.899,5304L2318.899,5321.568L2299.213,5321.568L2299.213,5342.592C2299.972,5342.304 2300.898,5342.016 2301.992,5341.728C2303.085,5341.44 2304.168,5341.296 2305.239,5341.296C2307.739,5341.296 2310.038,5341.824 2312.136,5342.88C2314.234,5343.936 2316.031,5345.688 2317.526,5348.136C2319.021,5350.584 2320.193,5353.8 2321.041,5357.784C2321.889,5361.768 2322.314,5366.64 2322.314,5372.4C2322.314,5378.064 2321.878,5383.008 2321.008,5387.232C2320.137,5391.456 2318.887,5394.96 2317.258,5397.744C2315.629,5400.528 2313.665,5402.64 2311.366,5404.08C2309.067,5405.52 2306.489,5406.24 2303.632,5406.24C2302.873,5406.24 2301.925,5406.192 2300.786,5406.096C2299.648,5406 2298.443,5405.856 2297.171,5405.664C2295.898,5405.472 2294.637,5405.232 2293.387,5404.944C2292.137,5404.656 2291.022,5404.272 2290.039,5403.792L2290.039,5304ZM2304.302,5389.968C2305.462,5389.968 2306.545,5389.656 2307.549,5389.032C2308.554,5388.408 2309.435,5387.448 2310.194,5386.152C2310.953,5384.856 2311.556,5383.2 2312.002,5381.184C2312.448,5379.168 2312.671,5376.72 2312.671,5373.84C2312.671,5370.384 2312.426,5367.6 2311.935,5365.488C2311.444,5363.376 2310.774,5361.72 2309.926,5360.52C2309.078,5359.32 2308.107,5358.528 2307.013,5358.144C2305.92,5357.76 2304.748,5357.568 2303.498,5357.568C2302.873,5357.568 2302.092,5357.688 2301.155,5357.928C2300.217,5358.168 2299.57,5358.384 2299.213,5358.576L2299.213,5389.248C2299.704,5389.536 2300.452,5389.728 2301.456,5389.824C2302.46,5389.92 2303.409,5389.968 2304.302,5389.968Z\" style=\"fill-rule:nonzero;\"></path> <path d=\"M2355.525,5348.928L2356.061,5335.824L2355.726,5335.824L2352.579,5349.36L2335.103,5404.8L2328.206,5404.8L2328.206,5304L2337.379,5304L2337.379,5358.864L2336.71,5372.4L2337.111,5372.4L2340.392,5358.432L2357.869,5304L2364.698,5304L2364.698,5404.8L2355.525,5404.8L2355.525,5348.928Z\" style=\"fill-rule:nonzero;\"></path> <path d=\"M2406.079,5321.568L2392.419,5321.568L2392.419,5404.8L2383.246,5404.8L2383.246,5321.568L2369.519,5321.568L2369.519,5304L2406.079,5304L2406.079,5321.568Z\" style=\"fill-rule:nonzero;\"></path> </g> </g> </g> <g transform=\"matrix(1,0,0,1,1116,0)\"> <g transform=\"matrix(-0.956938,-0,0,-1.015228,2167.105895,9498.93401)\"> <path d=\"M1111,1801.5L914.344,2079.547C902,2065.819 902,2050.583 902,2047.75L902,1555.25C902,1552.417 902,1537.181 914.344,1523.453L1111,1801.5Z\" style=\"fill:url(#_Linear1);\"></path> </g> <path d=\"M1103.948,7670L1292.135,7952.281C1291.258,7953.316 1290.316,7954.343 1289.303,7955.355C1287.094,7957.565 1274.659,7970 1253.948,7970L1130.707,7970C1126.932,7970 1103.948,7970 1089.105,7947.735L1003.948,7820L1103.948,7670Z\" style=\"fill:rgb(80,122,255);\"></path> <g transform=\"matrix(-1,0,0,-1,2703.948,9470)\"> <path d=\"M1700,1650L1785.157,1522.265C1786.362,1520.457 1791.096,1513.355 1800,1507.652L1800,1800L1700,1650Z\" style=\"fill:rgb(80,122,255);\"></path> </g> <g transform=\"matrix(1,0,0,1,-2193.666611,4200)\"> <path d=\"M3097.615,3177.621C3102.803,3180.895 3107.998,3185.575 3112.458,3192.265L3197.615,3320L3097.615,3470L3097.615,3177.621Z\" style=\"fill:url(#_Linear2);\"></path> </g> <path d=\"M903.948,7377.621L903.948,7962.348C897.381,7966.554 888.547,7970 877.189,7970L753.948,7970C733.237,7970 720.802,7957.565 718.593,7955.355C703.948,7940.711 703.948,7923.089 703.948,7920L703.948,7420C703.948,7416.911 703.948,7399.289 718.593,7384.645C720.802,7382.435 733.237,7370 753.948,7370L877.189,7370C879.829,7370 891.87,7370 903.948,7377.621Z\" style=\"fill:url(#_Linear3);\"></path> <path d=\"M1292.135,7387.719L1003.948,7820L903.948,7670L1089.105,7392.265C1103.948,7370 1126.932,7370 1130.707,7370L1253.948,7370C1274.659,7370 1287.094,7382.435 1289.303,7384.645C1290.316,7385.657 1291.258,7386.684 1292.135,7387.719Z\" style=\"fill:url(#_Linear4);\"></path> </g> </g> </g> </g> <defs> <linearGradient id=\"_Linear1\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(4.18,-589.03,624.91,3.94,998.14,2097)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear2\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(231,133,-133,231,2966.614611,3187)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear3\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(7.948,-767,767,7.948,792,8139)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"0.43\" style=\"stop-color:rgb(83,163,240);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0.028\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(-346.457309,516,-500.761825,-357,1194.118127,7374)\"><stop offset=\"0\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop></linearGradient> </defs> </svg>";
+  static SVG_FILL = "<svg fill=\"#fff\" width=\"196\" height=\"196\" viewBox=\"0 0 196 196\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-169.580786,-8393.273443)\"> <rect id=\"Artboard4\" x=\"0\" y=\"6590\" width=\"5120\" height=\"2160\" style=\"fill:none;\"></rect> <g id=\"Artboard41\"> <g transform=\"matrix(1,0,0,1,1298,-3062)\"> <path d=\"M-1034.025,11502.773L-1061.086,11543.365L-1061.086,11462.182L-1034.025,11502.773Z\"></path> <path d=\"M-996.753,11558.682L-937.246,11647.941C-938.659,11649.148 -941.748,11651.273 -946.253,11651.273L-987.744,11651.273C-988.788,11651.273 -995.147,11651.273 -999.254,11645.113L-1026.814,11603.773L-996.753,11558.682Z\"></path> <path d=\"M-933.486,11642.765L-993.147,11553.273L-933.486,11463.782C-932.419,11466.358 -932.419,11468.559 -932.419,11469.107L-932.419,11637.44C-932.419,11637.988 -932.418,11640.189 -933.486,11642.765Z\"></path> <path d=\"M-1067.086,11553.273L-1067.086,11649.943C-1068.702,11650.723 -1070.695,11651.273 -1073.095,11651.273L-1114.586,11651.273C-1120.316,11651.273 -1123.756,11647.833 -1124.368,11647.222C-1128.419,11643.17 -1128.419,11638.295 -1128.419,11637.44L-1128.419,11469.107C-1128.419,11468.252 -1128.419,11463.377 -1124.368,11459.325C-1123.756,11458.714 -1120.316,11455.273 -1114.586,11455.273L-1073.095,11455.273C-1072.466,11455.273 -1069.914,11455.269 -1067.086,11456.608L-1067.086,11553.273Z\"></path> <path d=\"M-1061.086,11644.365L-1061.086,11563.182L-1034.025,11603.773L-1061.086,11644.365Z\"></path> <path d=\"M-937.246,11458.606L-1030.419,11598.365L-1060.48,11553.273L-999.254,11461.433C-995.147,11455.273 -988.788,11455.273 -987.744,11455.273L-946.253,11455.273C-941.748,11455.273 -938.659,11457.399 -937.246,11458.606Z\"></path> </g> </g> </g> </svg>";
+  static SVG_LINE = "<svg width=\"208\" height=\"208\" viewBox=\"0 0 208 208\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:1;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-170.572976,-6790.273443)\"> <rect id=\"Artboard4\" x=\"0\" y=\"6590\" width=\"5120\" height=\"2160\" style=\"fill:none;\"></rect> <g id=\"Artboard41\"> <g transform=\"matrix(1,0,0,1,-928.375024,-1678.062479)\"> <g transform=\"matrix(-0.322169,-0,0,-0.341794,1594.544491,9188.077039)\"> <path d=\"M1111,1801.5L914.344,2079.547C902,2065.819 902,2050.583 902,2047.75L902,1555.25C902,1552.417 902,1537.181 914.344,1523.453L1111,1801.5Z\" style=\"fill:none;stroke:white;stroke-width:18.07px;\"></path> </g> <g transform=\"matrix(0.336667,0,0,0.336667,864.952173,5990.102589)\"> <path d=\"M1103.948,7670L1292.135,7952.281C1291.258,7953.316 1290.316,7954.343 1289.303,7955.355C1287.094,7957.565 1274.659,7970 1253.948,7970L1130.707,7970C1126.932,7970 1103.948,7970 1089.105,7947.735L1003.948,7820L1103.948,7670Z\" style=\"fill:none;stroke:white;stroke-width:17.82px;\"></path> </g> <g transform=\"matrix(-0.336667,0,0,-0.336667,1775.281333,9178.335922)\"> <path d=\"M1700,1650L1785.157,1522.265C1786.362,1520.457 1791.096,1513.355 1800,1507.652L1800,1800L1700,1650Z\" style=\"fill:none;stroke:white;stroke-width:17.82px;\"></path> </g> <g transform=\"matrix(0.336667,0,0,0.336667,126.417748,7404.102589)\"> <path d=\"M3097.615,3177.621C3102.803,3180.895 3107.998,3185.575 3112.458,3192.265L3197.615,3320L3097.615,3470L3097.615,3177.621Z\" style=\"fill:none;stroke:white;stroke-width:17.82px;\"></path> </g> <g transform=\"matrix(0.336667,0,0,0.336667,864.952173,5990.102589)\"> <path d=\"M903.948,7377.621L903.948,7962.348C897.381,7966.554 888.547,7970 877.189,7970L753.948,7970C733.237,7970 720.802,7957.565 718.593,7955.355C703.948,7940.711 703.948,7923.089 703.948,7920L703.948,7420C703.948,7416.911 703.948,7399.289 718.593,7384.645C720.802,7382.435 733.237,7370 753.948,7370L877.189,7370C879.829,7370 891.87,7370 903.948,7377.621Z\" style=\"fill:none;stroke:white;stroke-width:17.82px;\"></path> </g> <g transform=\"matrix(0.336667,0,0,0.336667,864.952173,5990.102589)\"> <path d=\"M1292.135,7387.719L1003.948,7820L903.948,7670L1089.105,7392.265C1103.948,7370 1126.932,7370 1130.707,7370L1253.948,7370C1274.659,7370 1287.094,7382.435 1289.303,7384.645C1290.316,7385.657 1291.258,7386.684 1292.135,7387.719Z\" style=\"fill:none;stroke:white;stroke-width:17.82px;\"></path> </g> </g> </g> </g> </svg>";
+  static SVG_K = "<svg width=\"697\" height=\"710\" viewBox=\"0 0 697 710\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-5430.865286,-5533.596889)\"> <g transform=\"matrix(1,0,0,1,3202,0)\"> <g transform=\"matrix(1,0,0,1,664,0)\"> <path d=\"M1919.776,6061.508L1821.562,6208.829C1820.172,6210.914 1814.712,6219.105 1804.443,6225.682C1796.869,6230.534 1786.681,6234.508 1773.581,6234.508L1631.443,6234.508C1607.557,6234.508 1593.215,6220.166 1590.666,6217.618C1573.776,6200.727 1573.776,6180.404 1573.776,6176.841L1573.776,5600.174C1573.776,5596.611 1573.776,5576.288 1590.666,5559.398C1593.215,5556.85 1607.557,5542.508 1631.443,5542.508L1773.581,5542.508C1776.626,5542.508 1790.513,5542.508 1804.443,5551.298L1804.443,5888.508L2017.99,5568.187C2035.11,5542.508 2061.618,5542.508 2065.972,5542.508L2208.109,5542.508C2231.996,5542.508 2246.338,5556.85 2248.886,5559.398C2250.054,5560.566 2251.141,5561.75 2252.152,5562.943L2035.11,5888.508L2252.152,6214.072C2251.141,6215.266 2250.054,6216.45 2248.886,6217.618C2246.338,6220.166 2231.996,6234.508 2208.109,6234.508L2065.972,6234.508C2061.618,6234.508 2035.11,6234.508 2017.99,6208.829L1919.776,6061.508Z\" style=\"fill:none;stroke:rgb(91,255,205);stroke-width:17.82px;\"></path> </g> </g> </g> </svg>";
+  static SVG_M = "<svg width=\"712\" height=\"710\" viewBox=\"0 0 712 710\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-4420.865286,-5533.596889)\"> <g transform=\"matrix(1,0,0,1,3202,0)\"> <g transform=\"matrix(1,0,0,1,820,0)\"> <path d=\"M638.443,5888.508L638.443,6225.682C630.869,6230.534 620.681,6234.508 607.581,6234.508L465.443,6234.508C441.557,6234.508 427.215,6220.166 424.666,6217.618C407.776,6200.727 407.776,6180.404 407.776,6176.841L407.776,5600.174C407.776,5596.611 407.776,5576.288 424.666,5559.398C427.215,5556.85 441.557,5542.508 465.443,5542.508L607.581,5542.508C610.626,5542.508 624.513,5542.508 638.443,5551.298C644.426,5555.073 650.418,5560.471 655.562,5568.187L753.776,5715.508L851.99,5568.187C869.11,5542.508 895.618,5542.508 899.972,5542.508L1043.776,5542.508C1067.662,5542.508 1082.004,5556.85 1084.553,5559.398C1101.443,5576.288 1101.443,5596.611 1101.443,5600.174L1101.443,6176.841C1101.443,6180.404 1101.443,6200.727 1084.553,6217.618C1082.004,6220.166 1067.662,6234.508 1043.776,6234.508L901.638,6234.508C888.538,6234.508 878.35,6230.534 870.776,6225.682L870.776,5886.008L753.776,6061.508L638.443,5888.508Z\" style=\"fill:none;stroke:rgb(80,122,255);stroke-width:17.82px;\"></path> </g> </g> </g> </svg>";
+  static SVG_VVV = "<svg width=\"600\" height=\"600\" viewBox=\"0 0 606 606\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-498.3075,-7372)\"> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <g transform=\"matrix(-0.956938,-0,0,-1.015228,2167.105895,9498.93401)\"> <path d=\"M1128.39,1812.428L931.734,2090.475C928.093,2095.622 922.098,2098.859 915.546,2099.214C908.993,2099.57 902.644,2097.004 898.4,2092.284C881.11,2073.055 881.1,2051.718 881.1,2047.75L881.1,1555.25C881.1,1551.282 881.11,1529.945 898.4,1510.716C902.644,1505.996 908.993,1503.43 915.546,1503.786C922.098,1504.141 928.093,1507.378 931.734,1512.525L1128.39,1790.572C1133.07,1797.19 1133.07,1805.81 1128.39,1812.428ZM922.9,1571.065L922.9,2031.935L1085.881,1801.5L922.9,1571.065Z\" style=\"fill:white;\"></path> </g> </g> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <path d=\"M1120.589,7658.906L1308.776,7941.187C1313.724,7948.608 1313.159,7958.408 1307.393,7965.212C1306.17,7966.655 1304.857,7968.086 1303.445,7969.497C1300.352,7972.591 1282.943,7990 1253.948,7990L1130.707,7990C1125.422,7990 1093.244,7990 1072.464,7958.829L987.307,7831.094C982.828,7824.376 982.828,7815.624 987.307,7808.906L1087.307,7658.906C1091.016,7653.342 1097.261,7650 1103.948,7650C1110.635,7650 1116.88,7653.342 1120.589,7658.906ZM1265.135,7947.835L1103.948,7706.056L1027.985,7820L1105.746,7936.641C1114.652,7950 1128.442,7950 1130.707,7950L1253.948,7950C1258.304,7950 1262.049,7949.083 1265.135,7947.835Z\" style=\"fill:white;\"></path> </g> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <g transform=\"matrix(-1,0,0,-1,2703.948,9470)\"> <path d=\"M1683.359,1638.906L1768.516,1511.171C1770.195,1508.651 1776.802,1498.76 1789.212,1490.811C1795.368,1486.868 1803.184,1486.597 1809.598,1490.106C1816.012,1493.614 1820,1500.342 1820,1507.652L1820,1800C1820,1808.813 1814.231,1816.588 1805.796,1819.142C1797.361,1821.696 1788.248,1818.427 1783.359,1811.094L1683.359,1661.094C1678.88,1654.376 1678.88,1645.624 1683.359,1638.906ZM1780,1566.056L1724.037,1650L1780,1733.944L1780,1566.056Z\" style=\"fill:white;\"></path> </g> </g> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <g transform=\"matrix(1,0,0,1,-2193.666611,4200)\"> <path d=\"M3108.287,3160.707C3115.55,3165.29 3122.856,3171.806 3129.099,3181.171L3214.256,3308.906C3218.734,3315.624 3218.734,3324.376 3214.256,3331.094L3114.256,3481.094C3109.367,3488.427 3100.254,3491.696 3091.819,3489.142C3083.384,3486.588 3077.615,3478.813 3077.615,3470L3077.615,3177.621C3077.615,3170.335 3081.577,3163.626 3087.957,3160.108C3094.337,3156.589 3102.126,3156.819 3108.287,3160.707ZM3117.615,3236.056L3117.615,3403.944L3173.578,3320L3117.615,3236.056Z\" style=\"fill:white;\"></path> </g> </g> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <path d=\"M923.948,7377.621L923.948,7962.348C923.948,7969.165 920.476,7975.512 914.736,7979.189C905.517,7985.094 893.135,7990 877.189,7990L753.948,7990C724.953,7990 707.544,7972.591 704.451,7969.497C683.948,7948.995 683.948,7924.325 683.948,7920L683.948,7420C683.948,7415.675 683.948,7391.005 704.451,7370.503C707.544,7367.409 724.953,7350 753.948,7350L877.189,7350C880.884,7350 897.72,7350.043 914.621,7360.707C920.427,7364.371 923.948,7370.756 923.948,7377.621ZM883.948,7390.725C880.618,7389.987 878.057,7390 877.189,7390L753.948,7390C741.522,7390 734.061,7397.461 732.735,7398.787C723.948,7407.574 723.948,7418.146 723.948,7420L723.948,7920C723.948,7921.854 723.948,7932.426 732.735,7941.213C734.061,7942.539 741.522,7950 753.948,7950L877.189,7950C879.634,7950 881.885,7949.741 883.948,7949.292L883.948,7390.725Z\" style=\"fill:white;\"></path> </g> <g transform=\"matrix(0.946875,0,0,0.946875,-149.305763,412.46875)\"> <path d=\"M1308.776,7398.813L1020.589,7831.094C1016.88,7836.658 1010.635,7840 1003.948,7840C997.261,7840 991.016,7836.658 987.307,7831.094L887.307,7681.094C882.828,7674.376 882.828,7665.624 887.307,7658.906L1072.464,7381.171C1093.244,7350 1125.422,7350 1130.707,7350L1253.948,7350C1282.943,7350 1300.352,7367.409 1303.445,7370.503C1304.857,7371.914 1306.17,7373.345 1307.393,7374.788C1313.159,7381.592 1313.724,7391.392 1308.776,7398.813ZM1265.135,7392.165C1262.049,7390.917 1258.304,7390 1253.948,7390L1130.707,7390C1128.442,7390 1114.652,7390 1105.746,7403.359L927.985,7670L1003.948,7783.944L1265.135,7392.165Z\" style=\"fill:white;\"></path> </g> </g> </svg>";
+  static SVG_SIGN = "<svg width=\"600\" height=\"600\" viewBox=\"0 0 600 600\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;\" xmlns:c2pa=\"http://c2pa.org/manifest\"> <g transform=\"matrix(1,0,0,1,-1819.948,-7370)\"> <rect id=\"Artboard4\" x=\"0\" y=\"6590\" width=\"5120\" height=\"2160\" style=\"fill:none;\"></rect> <g id=\"Artboard41\"> <g> <g transform=\"matrix(1,0,0,1,1116,0)\"> <g transform=\"matrix(-0.956938,-0,0,-1.015228,2167.105895,9498.93401)\"> <path d=\"M1111,1801.5L914.344,2079.547C902,2065.819 902,2050.583 902,2047.75L902,1555.25C902,1552.417 902,1537.181 914.344,1523.453L1111,1801.5Z\" style=\"fill:url(#_Linear1);\"></path> </g> <path d=\"M1103.948,7670L1292.135,7952.281C1291.258,7953.316 1290.316,7954.343 1289.303,7955.355C1287.094,7957.565 1274.659,7970 1253.948,7970L1130.707,7970C1126.932,7970 1103.948,7970 1089.105,7947.735L1003.948,7820L1103.948,7670Z\" style=\"fill:rgb(80,122,255);\"></path> <g transform=\"matrix(-1,0,0,-1,2703.948,9470)\"> <path d=\"M1700,1650L1785.157,1522.265C1786.362,1520.457 1791.096,1513.355 1800,1507.652L1800,1800L1700,1650Z\" style=\"fill:rgb(80,122,255);\"></path> </g> <g transform=\"matrix(1,0,0,1,-2193.666611,4200)\"> <path d=\"M3097.615,3177.621C3102.803,3180.895 3107.998,3185.575 3112.458,3192.265L3197.615,3320L3097.615,3470L3097.615,3177.621Z\" style=\"fill:url(#_Linear2);\"></path> </g> <path d=\"M903.948,7377.621L903.948,7962.348C897.381,7966.554 888.547,7970 877.189,7970L753.948,7970C733.237,7970 720.802,7957.565 718.593,7955.355C703.948,7940.711 703.948,7923.089 703.948,7920L703.948,7420C703.948,7416.911 703.948,7399.289 718.593,7384.645C720.802,7382.435 733.237,7370 753.948,7370L877.189,7370C879.829,7370 891.87,7370 903.948,7377.621Z\" style=\"fill:url(#_Linear3);\"></path> <path d=\"M1292.135,7387.719L1003.948,7820L903.948,7670L1089.105,7392.265C1103.948,7370 1126.932,7370 1130.707,7370L1253.948,7370C1274.659,7370 1287.094,7382.435 1289.303,7384.645C1290.316,7385.657 1291.258,7386.684 1292.135,7387.719Z\" style=\"fill:url(#_Linear4);\"></path> </g> </g> </g> </g> <defs> <linearGradient id=\"_Linear1\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(4.18,-589.03,624.91,3.94,998.14,2097)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear2\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(231,133,-133,231,2966.614611,3187)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear3\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(7.948,-767,767,7.948,792,8139)\"><stop offset=\"0\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop><stop offset=\"0.43\" style=\"stop-color:rgb(83,163,240);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop></linearGradient> <linearGradient id=\"_Linear4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0.028\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(-346.457309,516,-500.761825,-357,1194.118127,7374)\"><stop offset=\"0\" style=\"stop-color:rgb(91,255,205);stop-opacity:1\"></stop><stop offset=\"1\" style=\"stop-color:rgb(80,122,255);stop-opacity:1\"></stop></linearGradient> </defs> </svg>";
+  canvasRef = React.createRef();
+  scrollRef = React.createRef();
+  hintRef = React.createRef();
+  renderVals() { return { canvasRef: this.canvasRef, scrollRef: this.scrollRef, hintRef: this.hintRef }; }
+
+  componentDidMount() {
+    this.mx = 0; this.my = 0; this.yaw = 0; this.pitch = 0; this.lastMove = -1e9;
+    this.onMove = e => { this.mx = (e.clientX / innerWidth) * 2 - 1; this.my = (e.clientY / innerHeight) * 2 - 1; this.lastMove = performance.now(); };
+    this.onLeave = () => { this.lastMove = -1e9; };
+    this.onResize = () => this.resize();
+    addEventListener('pointermove', this.onMove);
+    document.addEventListener('pointerleave', this.onLeave);
+    addEventListener('resize', this.onResize);
+    this.init();
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    removeEventListener('pointermove', this.onMove);
+    document.removeEventListener('pointerleave', this.onLeave);
+    removeEventListener('resize', this.onResize);
+  }
+  componentDidUpdate(prev) {
+    if (!this.img) return;
+    if (prev.cellSize !== this.props.cellSize) { this.build(); this.resize(); }
+  }
+
+  async init() {
+    try { await document.fonts.load('500 20px "JetBrains Mono"'); } catch (e) {}
+    let txt = Component.SVG_VVV;
+    txt = txt.replace('width="100%" height="100%"', 'width="600" height="600"');
+    const img = new Image();
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(txt);
+    await img.decode();
+    this.img = img;
+    let t2 = Component.SVG_SIGN;
+    t2 = t2.replace('width="100%" height="100%"', 'width="600" height="600"');
+    const orig = new Image();
+    orig.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(t2);
+    await orig.decode();
+    this.orig = orig;
+    const ld = async s => { const im = new Image(); im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s); await im.decode(); return im; };
+    this.lk = await ld(Component.SVG_K); this.lm = await ld(Component.SVG_M); this.ru = await ld(Component.SVG_RU);
+    this.ruW = await ld(Component.SVG_RU.replace('<g transform="matrix(2.717728', '<g style="fill:#fff" transform="matrix(2.717728'));
+    this.sf = await ld(Component.SVG_FILL); this.sl = await ld(Component.SVG_LINE);
+    const oc = document.createElement('canvas'); oc.width = oc.height = 600;
+    const og = oc.getContext('2d', { willReadFrequently: true }); og.drawImage(orig, 0, 0, 600, 600);
+    const od = og.getImageData(0, 0, 600, 600).data;
+    let a = 600, b = 600, c = 0, e = 0;
+    for (let y = 0; y < 600; y++) for (let x = 0; x < 600; x++) if (od[(y * 600 + x) * 4 + 3] > 100) {
+      if (x < a) a = x; if (x > c) c = x; if (y < b) b = y; if (y > e) e = y;
+    }
+    this.ob = { cx: (a + c) / 2, cy: (b + e) / 2, w: c - a };
+    this.p = 0;
+    this.build(); this.resize();
+    const tick = () => { this.draw(); this.raf = requestAnimationFrame(tick); };
+    tick();
+  }
+
+  build() {
+    const step = this.curCell ?? this.props.cellSize ?? 11;
+    const cw = step, ch = Math.round(step * 1.45);
+    const S = 600, off = document.createElement('canvas');
+    off.width = off.height = S;
+    const o = off.getContext('2d', { willReadFrequently: true });
+    o.drawImage(this.img, 0, 0, S, S);
+    const d = o.getImageData(0, 0, S, S).data;
+    let minX = S, minY = S, maxX = 0, maxY = 0;
+    for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) if (d[(y * S + x) * 4 + 3] > 100) {
+      if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y;
+    }
+    const cols = Math.ceil((maxX - minX) / cw), rows = Math.ceil((maxY - minY) / ch);
+    const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+    const grid = new Int32Array(cols * rows).fill(-1);
+    const cells = [], pal = [], palMap = {};
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const px = Math.round(minX + c * cw + cw / 2), py = Math.round(minY + r * ch + ch / 2);
+      if (px >= S || py >= S) continue;
+      const i = (py * S + px) * 4;
+      if (d[i + 3] < 128) continue;
+      const q = v => Math.min(255, Math.round(v / 12) * 12);
+      const R = q(d[i]), G = q(d[i + 1]), B = q(d[i + 2]), key = R + ',' + G + ',' + B;
+      if (palMap[key] === undefined) { palMap[key] = pal.length; pal.push([R, G, B]); }
+      grid[r * cols + c] = cells.length;
+      cells.push({ x: px - cx, y: py - cy, p: palMap[key], c, r });
+    }
+    const at = (c, r) => (c < 0 || r < 0 || c >= cols || r >= rows) ? -1 : grid[r * cols + c];
+    this.edge = cells.filter(e => at(e.c - 1, e.r) < 0 || at(e.c + 1, e.r) < 0 || at(e.c, e.r - 1) < 0 || at(e.c, e.r + 1) < 0);
+    this.cells = cells; this.pal = pal; this.cw = cw; this.ch = ch;
+    this.bw = maxX - minX; this.bh = maxY - minY;
+    this.MAXL = 40;
+    this.digits = new Uint8Array(cells.length * this.MAXL).map(() => Math.random() < 0.5 ? 0 : 1);
+    this.pal = [[80, 122, 255], [83, 163, 240], [91, 255, 205]];
+    this.hues = new Uint8Array(cells.length * this.MAXL).map(() => (Math.random() * 3) | 0);
+    cells.forEach((e, i) => e.i = i);
+    this.sprites = [];
+  }
+
+  resize() {
+    const cv = this.canvasRef.current; if (!cv || !this.cells) return;
+    this.dpr = Math.min(2, devicePixelRatio || 1);
+    cv.width = Math.round(cv.clientWidth * this.dpr);
+    cv.height = Math.round(cv.clientHeight * this.dpr);
+    this.k = Math.min(cv.clientWidth, cv.clientHeight) * 0.58 / Math.max(this.bw, this.bh);
+    this.sprites = [];
+  }
+
+  sprite(p, lv, dg) {
+    const id = (p * 8 + lv) * 2 + dg;
+    let s = this.sprites[id];
+    if (s) return s;
+    const K = this.k * this.dpr;
+    s = document.createElement('canvas');
+    s.width = Math.ceil(this.cw * K) + 1; s.height = Math.ceil(this.ch * K) + 1;
+    const g = s.getContext('2d');
+    const [R, G, B] = this.pal[p], b = 0.14 + 0.86 * Math.pow(lv / 7, 1.6);
+    g.fillStyle = `rgb(${R * b | 0},${G * b | 0},${B * b | 0})`;
+    g.font = `${lv === 7 ? 700 : 500} ${this.ch * K * 0.86}px "JetBrains Mono", ui-monospace, monospace`;
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText(dg ? '1' : '0', s.width / 2, s.height / 2 + s.height * 0.04);
+    return (this.sprites[id] = s);
+  }
+
+  draw() {
+    const cv = this.canvasRef.current; if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const W = cv.width, H = cv.height, K = this.k * this.dpr;
+    const now = performance.now(), tilt = this.props.tilt ?? 0.5;
+    let tx = this.mx, ty = this.my;
+    if (now - this.lastMove > 4000) { const t = now / 1000; tx = Math.sin(t * 0.5) * 0.5; ty = Math.sin(t * 0.37) * 0.3; }
+    const ss = (a, b, v) => { const t = Math.min(1, Math.max(0, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const rect = this.scrollRef.current ? this.scrollRef.current.getBoundingClientRect() : null;
+    const maxS = rect ? rect.height - innerHeight : 0;
+    const pRaw = maxS > 0 ? Math.min(1, Math.max(0, -rect.top / maxS)) : 0;
+    this.p += (pRaw - this.p) * 0.12;
+    if (this.hintRef.current) {
+      if (pRaw > 0.005) this.hintGone = true;
+      this.hintO = (this.hintO ?? 1) + ((this.hintGone ? 0 : 1) - (this.hintO ?? 1)) * 0.08;
+      const h = this.hintRef.current.style;
+      h.opacity = this.hintO.toFixed(3);
+      h.transform = `scale(${(0.85 + 0.15 * this.hintO).toFixed(3)})`;
+    }
+    const p = Math.min(1, this.p * 4), p2 = Math.min(1, Math.max(0, this.p * 4 - 1)), p3 = Math.min(1, Math.max(0, this.p * 4 - 2)), p4 = Math.max(0, this.p * 4 - 3), free = 1 - ss(0.35, 0.75, p), fade = ss(0.75, 0.92, p);
+    this.yaw += (tx * tilt * 0.8 * free - this.yaw) * 0.06;
+    this.pitch += (ty * tilt * 0.55 * free - this.pitch) * 0.06;
+    if (free === 0) { this.yaw *= 0.8; this.pitch *= 0.8; }
+    const cyw = Math.cos(this.yaw), syw = Math.sin(this.yaw), cp = Math.cos(this.pitch), sp = Math.sin(this.pitch);
+    const size = Math.max(this.bw, this.bh);
+    const frontZ = (Math.min(this.MAXL, Math.max(2, this.props.layers ?? 16)) - 1) * this.cw * (this.props.depth ?? 1) / 2;
+    const D = Math.max(size * (this.props.perspective ?? 1.6), frontZ + size * 0.5), ox = W / 2, oy = H * 0.48;
+    let sx, sy, sc;
+    const proj = (x, y, z) => {
+      const x1 = x * cyw + z * syw, z1 = -x * syw + z * cyw;
+      const y1 = y * cp + z1 * sp, z2 = -y * sp + z1 * cp;
+      sc = D / Math.max(D * 0.15, D - z2); sx = ox + x1 * sc * K; sy = oy + y1 * sc * K;
+    };
+    ctx.clearRect(0, 0, W, H);
+    const p3w = Math.min(1, Math.max(0, this.p * 4 - 2)), wb = ss(0, 0.35, p3w);
+    if (wb > 0) { ctx.fillStyle = '#fff'; ctx.fillRect(0, Math.floor(H * (1 - wb)), W, Math.ceil(H * wb)); }
+    const bb = ss(0.15, 0.6, Math.max(0, this.p * 4 - 3));
+    if (bb > 0) { ctx.fillStyle = '#000'; ctx.fillRect(0, Math.floor(H * (1 - bb)), W, Math.ceil(H * bb)); }
+
+    const n = Math.ceil(this.digits.length * 0.0015);
+    for (let i = 0; i < n; i++) this.digits[(Math.random() * this.digits.length) | 0] ^= 1;
+
+    const c0 = this.props.cellSize ?? 11, c1 = this.props.cellSizeEnd ?? 9;
+    const cs = Math.round(c0 + (c1 - c0) * ss(0, 0.75, p));
+    if (cs !== this.curCell) { this.curCell = cs; this.build(); }
+    const Lmax = Math.min(this.MAXL, Math.max(2, this.props.layers ?? 16));
+    const L = Math.max(1, Math.round(Lmax + (1 - Lmax) * ss(0, 0.75, p)));
+    const sp_ = this.cw * (this.props.depth ?? 1);
+    const z0 = -(L - 1) * sp_ / 2;
+
+    if (this.props.floor ?? true) {
+      const fy = this.bh / 2 + this.ch * 5, st = this.cw * 3;
+      for (let gz = -this.bw; gz <= this.bw; gz += st) for (let gx = -this.bw * 1.6; gx <= this.bw * 1.6; gx += st) {
+        const fall = 1 - Math.hypot(gx / (this.bw * 1.6), gz / this.bw);
+        if (fall <= 0) continue;
+        proj(gx, fy, gz);
+        ctx.fillStyle = `rgba(80,122,255,${(fall * 0.55).toFixed(3)})`;
+        const r = 1.4 * this.dpr * sc;
+        ctx.fillRect(sx - r / 2, sy - r / 2, r, r);
+      }
+    }
+
+    const M = this.MAXL;
+    if (fade > 0 && this.orig) {
+      const ff = this.bw * K / this.ob.w * (1 - 0.1 * ss(0, 0.15, p2) + 0.1 * ss(0.85, 1, p2));
+      const la = ss(0.15, 0.35, p2) * (1 - ss(0.75, 0.9, p2)), sa = fade * (1 - la);
+      if (la > 0 && this.lk) {
+        const g = 600 * ff / 692, w = 678 * g;
+        const d = Math.max(0, Math.min(0.66 * w, (W * 0.94 - w) / 2)) * (ss(0.35, 0.55, p2) - ss(0.55, 0.75, p2));
+        ctx.globalAlpha = la;
+        ctx.drawImage(this.lk, ox - d - 355.7 * g, oy - 354.9 * g, 697 * g, 710 * g);
+        ctx.drawImage(this.lm, ox + d - 355.7 * g, oy - 354.9 * g, 712 * g, 710 * g);
+      }
+      const left = this.ob.cx - this.ob.w / 2, t3 = ss(0.25, 0.8, p3);
+      const s3 = W * 0.5 / ((1710 - left) * ff);
+      const ffc = ff * (1 + (s3 - 1) * t3), ax = this.ob.cx + ((left + 1710) / 2 - this.ob.cx) * t3;
+      const X0 = ox - ax * ffc, Y0 = oy - this.ob.cy * ffc;
+      if (sa > 0) {
+        ctx.globalAlpha = sa;
+        ctx.drawImage(this.orig, X0, Y0, 600 * ffc, 600 * ffc);
+      }
+      const ta = ss(0.75, 0.95, p3);
+      if (ta > 0 && this.ru) {
+        ctx.globalAlpha = ta;
+        ctx.drawImage(this.ru, X0, Y0, 1711 * ffc, 600 * ffc);
+        const b4 = ss(0.15, 0.6, p4);
+        if (b4 > 0 && this.ruW) {
+          ctx.save(); ctx.beginPath(); ctx.rect(0, Math.floor(H * (1 - b4)), W, H); ctx.clip();
+          ctx.drawImage(this.ruW, X0, Y0, 1711 * ffc, 600 * ffc);
+          ctx.restore();
+        }
+      }
+      const la4 = ss(0, 0.15, p4);
+      if (la4 > 0 && this.sf) {
+        const hs = 150 * ffc, m = Math.max(24 * this.dpr, Math.min(W, H) * 0.035);
+        ctx.globalAlpha = la4;
+        ctx.drawImage(this.sl, m, H - m - hs, hs, hs);
+        ctx.drawImage(this.sf, W - m - hs, H - m - hs, hs, hs);
+      }
+    }
+    ctx.globalAlpha = 1 - fade;
+    if (fade < 1) for (let l = 0; l < L; l++) {
+      const front = l === L - 1, list = this.cells;
+      const lv = front ? 7 : Math.round(1 + 5 * (l / (L - 1)));
+      const z = z0 + l * sp_;
+      for (let j = 0; j < list.length; j++) {
+        const e = list[j];
+        proj(e.x, e.y, z);
+        const s = this.sprite(this.hues[e.i * M + l], lv, this.digits[e.i * M + l]);
+        const w = s.width * sc, h = s.height * sc;
+        ctx.drawImage(s, sx - w / 2, sy - h / 2, w + 0.5, h + 0.5);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+}
+</script>
+</body>
+</html>
