@@ -37,6 +37,9 @@ if [ ! -d .git ]; then
     git reset -q origin/main        # история с GitHub; файлы в папке остаются как есть
   fi
 fi
+# большие файлы по HTTPS: без этого GitHub отвечает «RPC failed; HTTP 400»
+git config http.postBuffer 524288000
+git config http.version HTTP/1.1
 git config user.name  >/dev/null || git config user.name  "Ложкин Дмитрий"
 git config user.email >/dev/null || git config user.email "logo@lozhkin.net"
 
@@ -56,13 +59,19 @@ else
   git commit -q -m "$MSG"
   say "Коммит: $MSG"
 fi
-if ! git push -q origin main 2>/dev/null; then
-  say "На GitHub есть более новые коммиты — кладу содержимое папки поверх"
-  git fetch -q origin main
-  git reset -q --soft origin/main
-  git diff --cached --quiet || git commit -q -m "$MSG"
-  git push -q origin main || fail "Не удалось отправить main"
+push_main() { git push origin main 2>&1; }
+if ! OUT="$(push_main)"; then
+  if printf '%s' "$OUT" | grep -qE 'rejected|fetch first|non-fast-forward'; then
+    say "На GitHub есть более новые коммиты — кладу содержимое папки поверх"
+    git fetch -q origin main
+    git reset -q --soft origin/main
+    git diff --cached --quiet || git commit -q -m "$MSG"
+    OUT="$(push_main)" || { printf '%s\n' "$OUT"; fail "Не удалось отправить main"; }
+  else
+    printf '%s\n' "$OUT"; fail "Не удалось отправить main"
+  fi
 fi
+say "main отправлен"
 
 # 4. Сайт в ветке gh-pages (перезаписывается целиком)
 say "Обновляю сайт (gh-pages)"
@@ -77,7 +86,7 @@ touch "$TMP/.nojekyll"
   git init -q -b gh-pages
   git add -A
   git -c user.name="Ложкин Дмитрий" -c user.email="logo@lozhkin.net" commit -q -m "Сайт: $MSG"
-  git push -q -f "$REMOTE" gh-pages
+  git -c http.postBuffer=524288000 -c http.version=HTTP/1.1 push -q -f "$REMOTE" gh-pages
 ) || fail "Не удалось отправить gh-pages"
 
 # 5. Настройки репозитория (повторный запуск безопасен)
