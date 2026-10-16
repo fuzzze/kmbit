@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>КМ БИТ — фирменный стиль</title>
+<meta name="description" content="Фирменный стиль «КМ БИТ»: знак, логотипы, руководство по фирменному стилю и версия для ИИ.">
+<link rel="icon" href="brandbook_assets/sign_grad.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --blue: #507AFF; --mint: #5BFFCD; --sky: #53A3F0; --navy: #0B1233;
+    --ink: #111522; --blue-dark: #2F55E0; --light: #F2F5FB; --grey: #5A6178; --rule: #D9DFEC;
+    --grad: linear-gradient(35deg, #507AFF 0%, #53A3F0 43%, #5BFFCD 100%);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; color: var(--ink); font: 400 17px/1.55 "PT Sans", Arial, sans-serif; }
+  a { color: var(--blue-dark); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", Consolas, monospace; font-weight: 500; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--grey); }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; }
+  header img { height: 36px; width: auto; display: block; }
+  header nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  header nav a { color: var(--ink); text-decoration: none; font-size: 15px; }
+  header nav a:hover { color: var(--blue-dark); }
+
+  .hero { padding: 72px 0 88px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .hero h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.04; margin: 14px 0 20px; text-wrap: balance; }
+  .hero p { margin: 0 0 32px; color: #2B3044; max-width: 520px; }
+  .hero .mark { width: 100%; max-width: 420px; justify-self: center; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; border: 1.5px solid var(--ink); color: var(--ink); background: #fff; }
+  .btn.primary { background: var(--ink); color: #fff; }
+  .btn:hover { border-color: var(--blue-dark); color: var(--blue-dark); }
+  .btn.primary:hover { background: var(--blue-dark); color: #fff; }
+  .btn small { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 11px; opacity: .7; }
+
+  section { padding: 72px 0; border-top: 1px solid var(--rule); }
+  section h2 { font-size: 32px; line-height: 1.15; margin: 10px 0 12px; }
+  section > .wrap > p { max-width: 640px; color: #2B3044; margin: 0 0 32px; }
+
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+  .file { display: flex; flex-direction: column; gap: 10px; padding: 22px; background: var(--light); border-radius: 12px; text-decoration: none; color: var(--ink); min-height: 170px; }
+  .file:hover { outline: 2px solid var(--blue); }
+  .file b { font-size: 19px; }
+  .file span { color: #2B3044; font-size: 15px; flex: 1; }
+
+  .variants { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .tile { aspect-ratio: 16 / 10; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 12%; position: relative; }
+  .tile img { max-width: 100%; max-height: 100%; display: block; }
+  .tile .mono { position: absolute; left: 16px; bottom: 12px; }
+  .tile.dark .mono { color: #AEB6CC; }
+
+  .colors { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+  .sw { border-radius: 12px; overflow: hidden; border: 1px solid var(--rule); }
+  .sw div { height: 96px; }
+  .sw p { margin: 0; padding: 10px 12px 12px; font-size: 14px; line-height: 1.35; }
+  .sw code { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--grey); }
+  .grad { height: 64px; border-radius: 12px; background: var(--grad); margin-top: 16px; }
+
+  .demo { background: var(--navy); color: #fff; border-top: 0; }
+  .demo h2 { color: #fff; }
+  .demo .wrap > p { color: #C9D0E2; }
+  .demo .mono { color: var(--mint); }
+  .demo iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #fff; display: block; }
+  .demo .btn { margin-top: 20px; background: transparent; color: #fff; border-color: #fff; }
+  .demo .btn:hover { color: var(--mint); border-color: var(--mint); }
+
+  .ai pre { background: var(--light); border-radius: 12px; padding: 18px 20px; overflow-x: auto; font: 500 13px/1.6 "JetBrains Mono", monospace; margin: 0 0 20px; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--grey); font-size: 15px; }
+  footer img { height: 22px; display: block; margin-bottom: 10px; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 0 56px; }
+    .hero .mark { max-width: 260px; justify-self: start; order: -1; }
+    .variants { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .colors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    header nav { display: none; }
+  }
+  @media (max-width: 520px) {
+    .variants { grid-template-columns: 1fr; }
+    .colors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="./" aria-label="КМ БИТ — на главную"><img src="brandbook_assets/logo_grad_black.svg" alt="КМ БИТ"></a>
+    <nav aria-label="Разделы">
+      <a href="#files">Файлы</a>
+      <a href="#logo">Логотип</a>
+      <a href="#color">Цвет</a>
+      <a href="#demo">Демо</a>
+      <a href="#ai">Для ИИ</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="mono">Фирменный стиль · версия 1.1</div>
+      <h1>Знак, логотип и правила «КМ БИТ»</h1>
+      <p>Монограмма из совмещённых букв «К» и «М», шрифтовой логотип с градиентным элементом, палитра, типографика и фирменная графика — в одном руководстве.</p>
+      <div class="btns">
+        <a class="btn primary" href="KMBit_brandbook.zip" download>Скачать всё <small>ZIP</small></a>
+        <a class="btn" href="KMBit_brandbook.pdf">Брендбук <small>PDF</small></a>
+      </div>
+    </div>
+    <img class="mark" src="brandbook_assets/sign_grad.svg" alt="Знак КМ БИТ">
+  </div>
+</div>
+
+<section id="files">
+  <div class="wrap">
+    <div class="mono">Файлы</div>
+    <h2>Что можно скачать</h2>
+    <p>Архив обновляется вместе с руководством и всегда лежит по одной и той же ссылке.</p>
+    <div class="files">
+      <a class="file" href="KMBit_brandbook.zip" download><span class="mono">ZIP</span><b>Весь комплект</b><span>Брендбук, исходные логотипы и все производные версии одним архивом.</span></a>
+      <a class="file" href="KMBit_brandbook.pdf"><span class="mono">PDF · 21 стр.</span><b>Руководство</b><span>Знак, логотип, построение, безопасное поле, цвет, шрифты, графика, запреты.</span></a>
+      <a class="file" href="KMBit_brandbook_AI.md"><span class="mono">Markdown</span><b>Брендбук для ИИ</b><span>Правила в виде инструкций для ИИ-агентов: токены, дерево решений, чек-лист.</span></a>
+      <a class="file" href="https://github.com/fuzzze/kmbit/tree/main/brandbook_assets"><span class="mono">SVG</span><b>Логотипы</b><span>Горизонтальный, вертикальный, шрифтовой, знак — полноцвет, монохром, контур.</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="mono">Логотип</div>
+    <h2>Версии логотипа</h2>
+    <p>Полноцветная версия — основная. Монохромная и контурная — для технологий, где градиент невозможен.</p>
+    <div class="variants">
+      <div class="tile" style="background: var(--light)"><img src="brandbook_assets/logo_grad_black.svg" alt="Горизонтальный логотип"><span class="mono">Горизонтальный</span></div>
+      <div class="tile dark" style="background: var(--navy)"><img src="brandbook_assets/logo_grad_white.svg" alt="Логотип на тёмном фоне"><span class="mono">Тёмный фон</span></div>
+      <div class="tile" style="background: var(--light)"><img src="brandbook_assets/vert_grad_black.svg" alt="Вертикальный логотип"><span class="mono">Вертикальный</span></div>
+      <div class="tile" style="background: #fff; border: 1px solid var(--rule)"><img src="brandbook_assets/word_grad_black.svg" alt="Шрифтовой логотип"><span class="mono">Шрифтовой</span></div>
+      <div class="tile dark" style="background: var(--blue)"><img src="brandbook_assets/logo_fill_white.svg" alt="Монохромный логотип"><span class="mono" style="color:#fff">Монохром</span></div>
+      <div class="tile" style="background: var(--light)"><img src="brandbook_assets/logo_line_black.svg" alt="Контурный логотип"><span class="mono">Контур</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <div class="mono">Цвет</div>
+    <h2>Палитра и градиент</h2>
+    <p>Два цвета знака — синий и мятный — и нейтральные тёмные и светлые. Градиент идёт от синего снизу-слева к мятному сверху-справа.</p>
+    <div class="colors">
+      <div class="sw"><div style="background:#507AFF"></div><p>Синий КМ<br><code>#507AFF</code></p></div>
+      <div class="sw"><div style="background:#5BFFCD"></div><p>Мятный<br><code>#5BFFCD</code></p></div>
+      <div class="sw"><div style="background:#53A3F0"></div><p>Голубой<br><code>#53A3F0</code></p></div>
+      <div class="sw"><div style="background:#0B1233"></div><p>Глубокий<br><code>#0B1233</code></p></div>
+      <div class="sw"><div style="background:#111522"></div><p>Графит<br><code>#111522</code></p></div>
+      <div class="sw"><div style="background:#2F55E0"></div><p>Синий тёмный<br><code>#2F55E0</code></p></div>
+    </div>
+    <div class="grad" role="img" aria-label="Фирменный градиент"></div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <div class="wrap">
+    <div class="mono">Демо</div>
+    <h2>Рекурсия логотипа</h2>
+    <p>Градиентный элемент в конце надписи разворачивается в знак, а знак — в новый логотип. Прокрутите внутри окна.</p>
+    <iframe src="KMBit_recursion.html" title="Демо: рекурсия логотипа КМ БИТ" loading="lazy"></iframe>
+    <a class="btn" href="KMBit_recursion.html">Открыть на весь экран</a>
+  </div>
+</section>
+
+<section id="ai" class="ai">
+  <div class="wrap">
+    <div class="mono">Для ИИ</div>
+    <h2>Брендбук для ИИ-агентов</h2>
+    <p>Передайте агенту файл целиком — как системную инструкцию или вложение. Логотипы агент берёт из репозитория, а не рисует сам.</p>
+    <pre>https://raw.githubusercontent.com/fuzzze/kmbit/main/KMBit_brandbook_AI.md</pre>
+    <div class="btns">
+      <a class="btn" href="KMBit_brandbook_AI.md">Открыть .md</a>
+      <a class="btn" href="https://github.com/fuzzze/kmbit">Репозиторий на GitHub</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <div><img src="brandbook_assets/word_grad_black.svg" alt="КМ БИТ">© КМ БИТ</div>
+    <div>Знак, логотип и руководство — Ложкин Дмитрий<br><a href="https://lozhkin.net">lozhkin.net</a> · <a href="mailto:logo@lozhkin.net">logo@lozhkin.net</a></div>
+  </footer>
+</div>
+</body>
+</html>
