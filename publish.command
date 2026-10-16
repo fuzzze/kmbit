@@ -49,7 +49,7 @@ git config user.email >/dev/null || git config user.email "logo@lozhkin.net"
 say "Собираю $ZIP"
 rm -f "$ZIP"
 zip -qr -X "$ZIP" . \
-  -x '.git/*' '.gitignore' '*.DS_Store' "$ZIP" 'publish.command' 'site/*' 'README.md'
+  -x '.git/*' '.gitignore' '*.DS_Store' "$ZIP" 'publish.command' 'site/*' 'README.md' '.nojekyll'
 
 # 3. Коммит в main (содержимое папки всегда побеждает)
 git add -A
@@ -90,15 +90,27 @@ touch "$TMP/.nojekyll"
 ) || fail "Не удалось отправить gh-pages"
 
 # 5. Настройки репозитория (повторный запуск безопасен)
+#    Pages переключается на «Deploy from a branch → gh-pages / (root)», даже если раньше
+#    сайт публиковался иначе (GitHub Actions, ветка main и т. п.)
 if [ "$HAVE_GH" = 1 ]; then
-  gh api -X POST "repos/$REPO/pages" -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 \
-    || gh api -X PUT "repos/$REPO/pages" -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 \
-    || true
-  gh repo edit "$REPO" --homepage "$SITE" --description "$DESC" >/dev/null 2>&1 || true
-  say "Pages и ссылка на сайт в описании репозитория — настроены"
+  if ! gh api "repos/$REPO/pages" >/dev/null 2>&1; then
+    gh api -X POST "repos/$REPO/pages" -f build_type=legacy -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null \
+      || fail "Не удалось включить GitHub Pages"
+  else
+    gh api -X PUT "repos/$REPO/pages" -f build_type=legacy -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null \
+      || fail "Не удалось переключить GitHub Pages на ветку gh-pages"
+  fi
+  gh api -X POST "repos/$REPO/pages/builds" >/dev/null 2>&1 || true   # пересобрать сайт сразу
+  SRC="$(gh api "repos/$REPO/pages" --jq '.build_type + " · " + .source.branch + .source.path' 2>/dev/null || echo '?')"
+  say "Pages: $SRC"
+  gh repo edit "$REPO" --homepage "$SITE" --description "$DESC" >/dev/null 2>&1 \
+    && say "Ссылка на сайт в описании репозитория — прописана" \
+    || say "Не удалось обновить описание репозитория (проверьте права gh)"
 elif [ -z "${KMBIT_REMOTE:-}" ]; then
-  say "GitHub CLI не найден: один раз включите Pages (Settings → Pages → ветка gh-pages)"
-  say "и укажите сайт $SITE в описании репозитория — или установите gh и запустите скрипт снова"
+  say "GitHub CLI (gh) не найден или не авторизован — настройки репозитория пропущены."
+  say "Один раз: Settings → Pages → Source: Deploy from a branch → gh-pages / (root),"
+  say "и укажите $SITE в поле Website (шестерёнка в блоке About)."
+  say "Или: brew install gh && gh auth login — и запустите скрипт снова."
 fi
 
 printf '\033[1;32m✓ Готово.\033[0m Репозиторий: https://github.com/%s · сайт: %s\n' "$REPO" "$SITE"
